@@ -68,7 +68,7 @@ export default {
 
 			</div>
 		
-			<div class="item flex  all-badges">
+			<div class="item flex">
 			
 				<div class="photo-item">
 				
@@ -104,7 +104,7 @@ export default {
 
 			</div>
 
-			<div class="item flex  no-discount">
+			<div class="item flex">
 			
 				<div class="photo-item">
 				
@@ -137,29 +137,27 @@ export default {
 		margin: 5px auto;
   	width: 350px;
   	display: inline-block;
+		overflow: hidden;
 		.photo-item {
   		position: relative;
   		cursor: pointer;
 			&:hover .alternative{
   			top: 0;
   			left: 0;
-  			display: inline;
+  			display: block;
 			}
 			.alternative{
   			position: absolute;
-  			display: none;
 			}
-			.discount {
-				z-index: 998;
-  			font-size: 10px;
-  			padding: 5px 10px;
-  			position: absolute;
-  			bottom: 85px;
-  			left: 0;
-  			background-color: red;
-  			color: white;
-  			display: none;
-			}
+		}
+		.discount {
+			font-size: 10px;
+			padding: 5px 10px;
+			position: absolute;
+			bottom: 85px;
+			left: 0;
+			background-color: red;
+			color: white;
 		}
 		.heart {
   		font-size: 35px;
@@ -181,7 +179,6 @@ export default {
   		left: 45px;
   		background-color: green;
   		color: white;
-  		display: none;
 		}
 		.brand {
   		display: block;
@@ -205,9 +202,7 @@ export default {
 			text-decoration: line-through;
 			font-size: 14px;
 			font-weight: 700;
-			display: none;
 		}
-		
 		
 	}
 }

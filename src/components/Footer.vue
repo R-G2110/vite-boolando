@@ -1,12 +1,19 @@
 <script>
+
+import {menuPrivacy, menuSocial} from '../data/footerMenu';
+
 export default {
+
 	name: 'Footer',
 	data() {
-		return{
-
+		return {
+			menuSocial,
+			menuPrivacy
 		}
 	}
+	
 }
+
 </script>
 
 <template>
@@ -14,97 +21,31 @@ export default {
 		<div class="container flex justify-sb">
 
 			<div class="privacy">
-			
 				<h4>Boolando s.r.l</h4>
 				<nav>
-				
 					<ul class="menu flex">
-					
-						<li>
-							
-							<a href="@">Informazioni legali</a>
-						
+						<li 
+							v-for="(privacy,index) in menuPrivacy"
+							:key="index"
+						>
+							<a :href="privacy.href">{{privacy.text}}</a>
 						</li>
-					
-						<li>
-							
-							<a href="@">Informativa sulla privacy</a>
-						
-						</li>
-					
-						<li>
-							
-							<a href="@">Diritto di recesso</a>
-						
-						</li>
-					
 					</ul>
-				
 				</nav>
-			
 			</div>
 
 			<div class="social">
-
-				<h5>Trovaci anche su</h5>
+				<h5>Trovaci anche su:</h5>
 				<nav>
-
 					<ul class="menu flex">
-
-						<li>
-
-							<a href="#">
-
-								<i class="fa-brands fa-square-twitter"></i>
-
-							</a>
-
+						<li 
+							v-for="(social,index) in menuSocial"
+							:key="index"
+						>
+							<a :href="social.href"><i :class="social.text"></i></a>
 						</li>
-
-						<li>
-
-							<a href="#">
-
-								<i class="fa-brands fa-square-facebook"></i>
-
-							</a>
-
-						</li>
-
-						<li>
-
-							<a href="#">
-
-								<i class="fa-brands fa-square-instagram"></i>
-
-							</a>
-
-						</li>
-
-						<li>
-
-							<a href="#">
-
-								<i class="fa-brands fa-square-pinterest"></i>
-
-							</a>
-
-						</li>
-
-						<li>
-
-							<a href="#">
-
-								<i class="fa-brands fa-square-youtube"></i>
-
-							</a>
-
-						</li>
-
 					</ul>
-
 				</nav>
-
 			</div>
 
 		</div>
