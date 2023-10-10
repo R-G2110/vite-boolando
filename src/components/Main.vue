@@ -1,11 +1,19 @@
 <script>
+
+import {items} from '../data/mainData'
+
 export default {
 	name: 'Main',
 	data() {
 		return{
-
+			items
 		}
-	}
+	},
+	methods: {
+		getImagePath(img){
+			return new URL(`../assets/img/${img}`,import.meta.url).href;
+		}
+	},
 }
 </script>
 
@@ -14,25 +22,45 @@ export default {
 
 		<div class="container flex justify-center">
 		
-			<div class="item flex  all-badges">
+			<div 
+				v-for="(item, index) in items"
+				:key="index"
+				class="item flex all-badges"
+			>
 			
 				<div class="photo-item">
 				
-					<img class=" " src="../assets/img/1.webp" alt="1">
-					<img class="alternative" src="../assets/img/1b.webp" alt="1b">
+					<img 
+						:src="getImagePath(item.photo)" 
+						:alt="(index+1)"
+					>
+					<img 
+						class="alternative" 
+						:src="getImagePath(item.alternative)" 
+						:alt="`${index+1}b`"
+					>
 					<span class="heart">&hearts;</span>
-					<span class="discount">50%</span>
-					<span class="eco">Sostenibilità</span>
-					<span class="brand ">Levi's</span>
-					<span class="item-name">relaxed fit tee unisex</span>
-					<span class="c-price">14,99&euro;</span>
-					<span class="o-price">29,99 &euro;</span>
+					<span 
+						:class="{'hide': item.discount === '0'}"
+						class="discount"
+					>{{item.discount}}%</span>
+					<span 
+						:class="{'hide': item.eco === false}"
+						class="eco"
+					>Sostenibilità</span>
+					<span class="brand">{{item.brand}}</span>
+					<span class="item-name">{{item.itemName}}</span>
+					<span class="c-price">{{item.currPrice}}&euro;</span>
+					<span 
+						:class="{'hide': item.discount === '0'}"
+						class="o-price"
+					>{{item.origPrice}}&euro;</span>
 				
 				</div>
 
 			</div>
 		
-			<div class="item flex  no-eco">
+			<!-- <div class="item flex  no-eco">
 			
 				<div class="photo-item">
 				
@@ -115,12 +143,12 @@ export default {
 					<span class="eco">Sostenibilità</span>
 					<span class="brand ">Esprit</span>
 					<span class="item-name">maglione - black</span>
-					<span class="c-price">29,99&euro;</span>
+					<span class="c-price">29,99 &euro;</span>
 					<span class="o-price">29,99 &euro;</span>
 				
 				</div>
 
-			</div>
+			</div> -->
 
 		</div>
 
@@ -129,6 +157,10 @@ export default {
 
 <style lang="scss" scoped>
 @use '../scss/main';
+
+.hide {
+	display: none;
+}
 
 .container {
 	padding-top: 100px;
@@ -199,11 +231,17 @@ export default {
 		}
 
 		.o-price {
+			margin-left: 10px;
 			text-decoration: line-through;
 			font-size: 14px;
 			font-weight: 700;
+			color: rgba($color: #000000, $alpha: 0.4)
 		}
-		
+		.no-discount .eco{
+		  bottom: 85px;
+		  left: 0;
+		  display: block;
+		}
 	}
 }
 
