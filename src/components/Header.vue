@@ -1,9 +1,13 @@
 <script>
+
+import {generePersona, userMenu} from  '../data/headerMenu';
+
 export default {
 	name: 'Header',
 	data() {
 		return{
-
+			generePersona,
+			userMenu
 		}
 	}
 }
@@ -13,71 +17,37 @@ export default {
 	<header>
 
 		<div class="fixed  ">
-		
 			<div class="container flex justify-sb">
 			
 				<nav>
-				
 					<ul class="flex">
-					
-						<li>
-							<a href="#">Donna</a>
+						<li 
+							v-for="(persona, index) in generePersona"
+							:key="index"
+						>
+							<a :href="persona.href">{{persona.text}}</a>
 						</li>
-					
-						<li>
-							<a href="#">Uomo</a>
-						</li>
-					
-						<li>
-							<a href="#">Bambini</a>
-						</li>
-					
 					</ul>
-				
 				</nav>
 
 				<div class="logo">
-
-					<a href="">
+					<a href="#">
 						<img src="../assets/img/boolean-logo.png" alt="boolean-logo">
 					</a>
-				
 				</div>
 			
 				<nav>
-				
 					<ul class="flex">
-					
-						<li>
-						
-							<a href="#">
-								<i class="fa-solid fa-user-astronaut"></i>
-							</a>
-						
+						<li
+							v-for="(user, index) in userMenu"
+							:key="index"
+						>
+							<a :href="user.href"><i :class="user.text"></i></a>
 						</li>
-					
-						<li>
-						
-							<a href="#">
-								<i class="fa-regular fa-heart"></i>
-							</a>
-						
-						</li>
-					
-						<li>
-						
-							<a href="#">
-								<i class="fa-solid fa-bag-shopping"></i>
-							</a>
-						
-						</li>
-					
 					</ul>
-				
 				</nav>
 			
 			</div>
-		
 		</div>
 
 </header>
