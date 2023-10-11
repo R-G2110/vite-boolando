@@ -1,9 +1,13 @@
 <script>
 
-import {items} from '../data/mainData'
+import items from '../data/mainData';
+import ItemCard from './partials/itemCard.vue';
 
 export default {
 	name: 'Main',
+	components:{
+		ItemCard
+	},
 	data() {
 		return{
 			items
@@ -21,141 +25,17 @@ export default {
 	<main>
 
 		<div class="container flex justify-center">
-		
-			<div 
-				v-for="(item, index) in items"
+			<ItemCard 
+				v-for="(item,index) in items"
 				:key="index"
-				class="item flex all-badges"
-			>
-			
-				<div class="photo-item">
-				
-					<img 
-						:src="getImagePath(item.photo)" 
-						:alt="(index+1)"
-					>
-					<img 
-						class="alternative" 
-						:src="getImagePath(item.alternative)" 
-						:alt="`${index+1}b`"
-					>
-					<span class="heart">&hearts;</span>
-					<span 
-						:class="{'hide': item.discount === '0'}"
-						class="discount"
-					>{{item.discount}}%</span>
-					<span 
-						:class="{'hide': item.eco === false}"
-						class="eco"
-					>Sostenibilità</span>
-					<span class="brand">{{item.brand}}</span>
-					<span class="item-name">{{item.itemName}}</span>
-					<span class="c-price">{{item.currPrice}}&euro;</span>
-					<span 
-						:class="{'hide': item.discount === '0'}"
-						class="o-price"
-					>{{item.origPrice}}&euro;</span>
-				
-				</div>
-
-			</div>
-		
-			<!-- <div class="item flex  no-eco">
-			
-				<div class="photo-item">
-				
-					<img class=" " src="../assets/img/2.webp" alt="1">
-					<img class="alternative" src="../assets/img/2b.webp" alt="2b">
-					<span class="heart">&hearts;</span>
-					<span class="discount">30%</span>
-					<span class="eco">Sostenibilità</span>
-					<span class="brand ">Guess</span>
-					<span class="item-name">roses tee</span>
-					<span class="c-price">20,99&euro;</span>
-					<span class="o-price">29,99 &euro;</span>
-				
-				</div>
-
-			</div>
-		
-			<div class="item flex no-eco">
-			
-				<div class="photo-item">
-				
-					<img class=" " src="../assets/img/3.webp" alt="3">
-					<img class="alternative" src="../assets/img/3b.webp" alt="3b">
-					<span class="heart">&hearts;</span>
-					<span class="discount">30%</span>
-					<span class="eco">Sostenibilità</span>
-					<span class="brand ">Come Zucchero Filato</span>
-					<span class="item-name">voglia di colori pastello</span>
-					<span class="c-price">129,99&euro;</span>
-					<span class="o-price">184,99 &euro;</span>
-				
-				</div>
-
-			</div>
-		
-			<div class="item flex">
-			
-				<div class="photo-item">
-				
-					<img class=" " src="../assets/img/4.webp" alt="4">
-					<img class="alternative" src="../assets/img/4b.webp" alt="4b">
-					<span class="heart">&hearts;</span>
-					<span class="discount">50%</span>
-					<span class="eco">Sostenibilità</span>
-					<span class="brand ">Levi's</span>
-					<span class="item-name">tee unisex</span>
-					<span class="c-price">14,99&euro;</span>
-					<span class="o-price">29,99 &euro;</span>
-				
-				</div>
-
-			</div>
-
-			<div class="item flex  ">
-			
-				<div class="photo-item">
-				
-					<img class=" " src="../assets/img/5.webp" alt="5">
-					<img class="alternative" src="../assets/img/5b.webp" alt="5b">
-					<span class="heart">&hearts;</span>
-					<span class="discount">50%</span>
-					<span class="eco">Sostenibilità</span>
-					<span class="brand ">Maya Deluxe</span>
-					<span class="item-name">stripe bicodice</span>
-					<span class="c-price">99,99&euro;</span>
-					<span class="o-price">29,99 &euro;</span>
-				
-				</div>
-
-			</div>
-
-			<div class="item flex">
-			
-				<div class="photo-item">
-				
-					<img class=" " src="../assets/img/6.webp" alt="6">
-					<img class="alternative" src="../assets/img/6b.webp" alt="6b">
-					<span class="heart">&hearts;</span>
-					<span class="discount">50%</span>
-					<span class="eco">Sostenibilità</span>
-					<span class="brand ">Esprit</span>
-					<span class="item-name">maglione - black</span>
-					<span class="c-price">29,99 &euro;</span>
-					<span class="o-price">29,99 &euro;</span>
-				
-				</div>
-
-			</div> -->
-
+				:itemObj="item"
+			/>
 		</div>
-
+		
 	</main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 @use '../scss/main';
 
 .hide {

@@ -15,7 +15,7 @@ const generePersona = [
 const userMenu = [
 	{
 		href: '#',
-		text: 'fa-solid fa-user-astronaut'
+		text: 'fa-regular fa-user'
 	},
 	{
 		href: '#',

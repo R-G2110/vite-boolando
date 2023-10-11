@@ -1,4 +1,4 @@
-const items = [
+export default [
 	{
 		photo: '1.webp',
 		alternative: '1b.webp',
@@ -60,5 +60,3 @@ const items = [
 		origPrice: '29,99'
 	}
 ]
-
-export {items}
