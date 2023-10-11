@@ -37,7 +37,10 @@ export default {
 
 <style lang="scss" scoped>
 @use '../scss/main';
-
+.container {
+	padding-top: 100px;
+	flex-wrap: wrap;
+}
 
 
 </style>
