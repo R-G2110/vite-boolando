@@ -2,7 +2,7 @@ export default [
 	{
 		photo: '1.webp',
 		alternative: '1b.webp',
-		discount: '50',
+		discount: '-50%',
 		eco: true,
 		brand: "Levi's",
 		itemName: 'relaxed fit tee unisex',
@@ -12,7 +12,7 @@ export default [
 	{
 		photo: '2.webp',
 		alternative: '2b.webp',
-		discount: '30',
+		discount: '-30%',
 		eco: false,
 		brand: "Guess",
 		itemName: 'roses tee',
@@ -22,7 +22,7 @@ export default [
 	{
 		photo: '3.webp',
 		alternative: '3b.webp',
-		discount: '30',
+		discount: '-30%',
 		eco: false,
 		brand: "Come Zucchero Filato",
 		itemName: 'voglia di colori pastello',
@@ -32,7 +32,7 @@ export default [
 	{
 		photo: '4.webp',
 		alternative: '4b.webp',
-		discount: '50',
+		discount: '-50%',
 		eco: true,
 		brand: "Levi's",
 		itemName: 'tee unisex',
@@ -42,7 +42,7 @@ export default [
 	{
 		photo: '5.webp',
 		alternative: '5b.webp',
-		discount: '0',
+		discount: '0%',
 		eco: false,
 		brand: "Maya Deluxe",
 		itemName: 'stripe bicodice',
@@ -52,7 +52,7 @@ export default [
 	{
 		photo: '6.webp',
 		alternative: '6b.webp',
-		discount: '0',
+		discount: '0%',
 		eco: true,
 		brand: "Esprit",
 		itemName: 'maglione - black',

@@ -32,7 +32,7 @@ export default {
 
 				<div class="logo">
 					<a href="#">
-						<img src="../assets/img/boolean-logo.png" alt="boolean-logo">
+						<img src="/img/boolean-logo.png" alt="boolean-logo">
 					</a>
 				</div>
 			
@@ -54,11 +54,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
-@use '../scss/partials/utilities' as *;
-@use '../scss/partials/general' as *;
-
-
+@use '../scss/main.scss';
 header .fixed{
 	width: 100%;
   height: 70px;
